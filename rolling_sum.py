@@ -20,7 +20,6 @@ def rolling_window(a, window):
 x = np.arange(30000000,dtype=np.float32)
 Out = np.array(rolling_window(x,5))                               
 out = np.empty(29999996, dtype=np.float32)
-t1 = time.time()
 da = cuda.to_device(Out)
 dev_out = cuda.to_device(out, copy=False)
 row_sum(da,out=dev_out)
